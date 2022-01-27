@@ -8,22 +8,22 @@ export const ServiceContainer = () => {
       <TitleContainer title="Our services" orange={true} />
       <div className="mt-4 grid  grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <IconHolder
-          title="Activities"
+          title="Adventures"
           icon="explore"
           description="Are you getting bored? we got entertainments for you ! "
         />
         <IconHolder
-          title="Restaurants"
+          title="Food and drinks"
           icon="restaurants"
           description="Are you hunrgy? no issues we got the best adresses for you"
         />
         <IconHolder
-          title="Hotels"
+          title="Affordable hotels"
           icon="hotel"
           description="Do you need a place to stay at? we got you cover"
         />
         <IconHolder
-          title="Tour guide"
+          title="Tour guides"
           icon="explore"
           description="Do you want to see the city in a different view? we got the tour guides for you"
         />

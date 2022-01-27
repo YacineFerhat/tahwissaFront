@@ -6,9 +6,11 @@ export const NavBar = () => {
     >
       <Link href="/">NHAWSOUHA</Link>
       <div>
-        <Link href="/Activities">Activites</Link>
+        <Link href="/Activities">Activities</Link>
         <Link href="/Hotels">
-          <span className="xl:md-20 mx-6  md:mx-10 lg:mx-16">Hotels</span>
+          <span className="xl:md-20 mx-6 cursor-pointer  md:mx-10 lg:mx-16">
+            Hotels
+          </span>
         </Link>
         <Link href="/Restaurants">Restaurants</Link>
       </div>
