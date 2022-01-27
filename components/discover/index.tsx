@@ -5,7 +5,7 @@ export const Discover = () => {
   const gps = svgHandler('gps')
   const date = svgHandler('date')
   return (
-    <div className="text-md bg-c-orange/25 py-8 px-4 md:py-16 md:px-16 md:text-lg lg:px-32 xl:py-20 xl:px-64 xl:text-xl">
+    <div className="text-md bg-c-orange/25 py-8 px-4 md:py-16 md:px-16 md:text-lg lg:px-32 xl:py-20  xl:px-64 xl:text-xl">
       <div className="grid grid-cols-1 gap-8  md:grid-cols-2">
         <div className="flex items-center">
           <p className="align-middle font-merriweather text-2xl leading-10 md:text-4xl">
