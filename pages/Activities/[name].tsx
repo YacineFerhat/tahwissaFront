@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useFetchActivityByAlias } from 'api/activities'
 import { useState, useEffect } from 'react'
 import { CustumInput, CustumLabel, Modal } from 'components'
-
+import { FaHiking } from 'react-icons/fa'
 const Activity = () => {
   const gps = {
     firstCord: "35° 42' 35'",
@@ -45,9 +45,12 @@ const Activity = () => {
               <div className="mb-2 text-lg font-bold text-c-blue md:text-xl">
                 Participants
               </div>
-              <div>Partcipants counter (icon?)</div>
+              <div className="flex items-center">
+                <InfoCard icon="guide" text="" title="" />
+                <span className="font-bold text-c-gray">+2</span>
+              </div>
               <div className="mt-4 text-lg font-bold text-c-blue md:text-xl">
-                Info
+                Infos
               </div>
               <div className="mt-4 grid grid-cols-2">
                 <InfoCard icon="calendar" text="20 June 2021" title="Date" />
