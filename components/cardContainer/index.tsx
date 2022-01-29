@@ -1,16 +1,34 @@
 import { TitleContainer, Card } from 'components'
 import bg from 'assets/oran.png'
-
-export const CardContainer = () => {
+import clsx from 'clsx'
+interface Props {
+  home?: boolean
+  title: string
+  data?: Place[]
+}
+interface Place {
+  picture: string
+  name: string
+  description: string
+  tags: string[]
+  review: number
+  alias: string
+}
+export const CardContainer = ({ data, title, home }: Props) => {
   return (
     <div
       className={` py-8 px-4 md:py-16 md:px-16 md:text-lg lg:px-32 xl:py-20 xl:px-64 xl:text-xl`}
     >
-      <TitleContainer title="Explore our top destinations" />
-      <div className="mt-4 grid  grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {Data.map((obj, index) => (
-          <Card data={obj} key={index} />
-        ))}
+      <TitleContainer title={title} />
+      <div
+        className={clsx(
+          `mt-4 grid grid-cols-1   place-items-center gap-4 md:grid-cols-2 `,
+          home ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
+        )}
+      >
+        {data
+          ? data.map((obj, index) => <Card data={obj} key={index} />)
+          : Data.map((obj, index) => <Card data={obj} key={index} />)}
       </div>
     </div>
   )
@@ -19,22 +37,32 @@ export const CardContainer = () => {
 const Data = [
   {
     picture: bg.src,
-    title: 'test1',
+    name: 'test1',
     description:
       'eligendi. Sunt, suscipit. Ipsum corrupti culpa repellendus laudantium! Neque animi ducimus exercitationem soluta.',
     localisation: 'Adresse 1',
+    review: 4,
+    tags: ['hotel'],
+    alias: 'SJKF2903',
   },
   {
     picture: bg.src,
+    alias: 'SJKF2902',
+    review: 4,
 
-    title: 'test2',
+    tags: ['hotel'],
+    name: 'test2',
     description:
       'eligendi. Sunt, suscipit. Ipsum corrupti culpa repellendus laudantium! Neque animi ducimus exercitationem soluta.',
     localisation: 'Adresse 1',
   },
   {
+    review: 4,
+
+    alias: 'SJKF29X3',
     picture: bg.src,
-    title: 'test3',
+    name: 'test3',
+    tags: ['hotel'],
     description:
       'eligendi. Sunt, suscipit. Ipsum corrupti culpa repellendus laudantium! Neque animi ducimus exercitationem soluta.',
     localisation: 'Adresse 1',
