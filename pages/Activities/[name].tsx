@@ -1,12 +1,11 @@
 import { Container, InfoCard } from 'components'
-import picture from 'assets/bg.svg'
 import Rating from '@mui/material/Rating'
 import { useRouter } from 'next/router'
 import { useFetchActivityByAlias } from 'api/activities'
 import { useState, useEffect } from 'react'
+import { CustumInput, CustumLabel, Modal } from 'components'
 
 const Activity = () => {
-  const city = 'Oran'
   const gps = {
     firstCord: "35° 42' 35'",
     firstDirection: 'north',
@@ -21,7 +20,11 @@ const Activity = () => {
   useEffect(() => {
     setValue(data?.review)
   }, [data?.review])
-  console.log(data)
+
+  const [isOpen, setIsOpen] = useState(false)
+  const handleModal = (state: boolean) => {
+    setIsOpen(state)
+  }
 
   return (
     <Container title={data?.name}>
@@ -54,7 +57,10 @@ const Activity = () => {
                 <InfoCard icon="time" text="10:00" title="Time" />
                 <InfoCard icon="money" text="2000 DA" title="Price" />
               </div>
-              <div className="mt-8 flex h-12 w-32 cursor-pointer items-center justify-center rounded-2xl bg-c-orange px-6 py-4 font-bold text-c-white">
+              <div
+                onClick={() => handleModal(true)}
+                className="mt-8 flex h-12 w-32 cursor-pointer items-center justify-center rounded-2xl bg-c-orange px-6 py-4 font-bold text-c-white"
+              >
                 Join
               </div>
             </div>
@@ -89,6 +95,42 @@ const Activity = () => {
           )}
         </div>
       </div>
+      <Modal isOpen={isOpen} handleClose={handleModal}>
+        <div className="mb-4 text-2xl font-semibold text-c-dark">
+          Register to the event
+        </div>
+        <CustumLabel text="Full Name " />
+        <CustumInput
+          className="w-full"
+          name="name"
+          type="text"
+          placeholder="Yacine Ferhat"
+        />
+        <div className="my-4" />
+        <CustumLabel text="Email adress" />
+        <CustumInput
+          className="w-full"
+          name="email"
+          type="email"
+          placeholder="test@gmail.com"
+        />
+        <div className="my-4" />
+        <CustumLabel text="Phone number" />
+        <CustumInput
+          className="w-full"
+          name="phoneNumber"
+          type="text"
+          placeholder="06293..."
+        />
+        <div className="mt-8 flex items-center justify-center ">
+          <div
+            onClick={() => handleModal(false)}
+            className="flex h-12 cursor-pointer items-center rounded-2xl bg-c-blue px-6 py-4 text-c-white"
+          >
+            Register
+          </div>
+        </div>
+      </Modal>
     </Container>
   )
 }

@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import logo from 'assets/logo.png'
-import { Modal } from 'components'
 import { useState } from 'react'
-import { CustumInput, CustumLabel } from 'components'
+import { CustumInput, CustumLabel, Modal } from 'components'
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
