@@ -4,7 +4,7 @@ import clsx from 'clsx'
 interface Props {
   home?: boolean
   title: string
-  data?: Place[]
+  data: Place[]
 }
 interface Place {
   picture: string
@@ -26,9 +26,13 @@ export const CardContainer = ({ data, title, home }: Props) => {
           home ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
         )}
       >
-        {data
-          ? data.map((obj, index) => <Card data={obj} key={index} />)
-          : Data.map((obj, index) => <Card data={obj} key={index} />)}
+        {data?.length > 0 ? (
+          data.map((obj, index) => <Card home={home} data={obj} key={index} />)
+        ) : (
+          <p className="col-span-3 w-full text-center text-2xl font-semibold text-red-600">
+            We are sorry, we couldn't fine any data for your research
+          </p>
+        )}
       </div>
     </div>
   )

@@ -44,6 +44,28 @@ export const useFetchSearchActivities = (reload: number, name: string) => {
   return data
 }
 
+export const useFetchSearchTop = (reload: number, name: string) => {
+  const [data, setData] = useState([] as any)
+  useEffect(() => {
+    async function fetchData() {
+      createAxiosInstance()
+        .get(`activities/searchTop/${name}`)
+        .then((res) => {
+          setData(res.data)
+        })
+    }
+    async function fetchFullData() {
+      createAxiosInstance()
+        .get(`activities/top`)
+        .then((res) => {
+          setData(res.data)
+        })
+    }
+    name !== '' ? fetchData() : fetchFullData()
+  }, [reload, name])
+  return data
+}
+
 export const useFetchActivity = (reload: number, id: string | string[]) => {
   const [data, setData] = useState([] as any)
   useEffect(() => {

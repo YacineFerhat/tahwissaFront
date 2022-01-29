@@ -1,11 +1,14 @@
 import Link from 'next/link'
+import logo from 'assets/logo.png'
 export const NavBar = () => {
   return (
     <nav
       className={`text-md flex h-16 items-center justify-between px-4 font-poppins  shadow-md md:px-16 md:text-lg lg:px-32 xl:px-64 xl:text-xl`}
     >
-      <Link href="/">NHAWSOUHA</Link>
-      <div className='hidden sm:flex'>
+      <Link href="/">
+        <img src={logo.src} />
+      </Link>
+      <div className="hidden sm:flex">
         <Link href="/Activities">Activities</Link>
         <Link href="/Hotels">
           <span className="xl:md-20 mx-6 cursor-pointer  md:mx-10 lg:mx-16">

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 interface Props {
+  home?: boolean
   data: {
     picture: string
     description: string
@@ -15,12 +16,14 @@ interface Props {
 
 export const Card = ({
   data: { picture, name, description, tags, review, alias },
+  home,
 }: Props) => {
   const { pathname } = useRouter()
+  const link = home ? `/Activities/${alias}` : `${pathname}/${alias}`
   return (
-    <Link href={`${pathname}/${alias}`}>
-      <div className="max-w-sm  h-full cursor-pointer overflow-hidden rounded-2xl shadow-lg">
-        <img className="w-full h-44" src={picture} alt={name} />
+    <Link href={link}>
+      <div className="h-full  max-w-sm cursor-pointer overflow-hidden rounded-2xl shadow-lg">
+        <img className="h-44 w-full" src={picture} alt={name} />
         <div className="px-6 py-4">
           <div className="mb-2 flex items-center">
             <div className=" mr-2 align-middle text-xl font-bold">{name}</div>{' '}
