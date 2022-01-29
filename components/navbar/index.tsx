@@ -1,6 +1,14 @@
 import Link from 'next/link'
 import logo from 'assets/logo.png'
+import { Modal } from 'components'
+import { useState } from 'react'
+import { CustumInput, CustumLabel } from 'components'
+
 export const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const handleModal = (state: boolean) => {
+    setIsOpen(state)
+  }
   return (
     <nav
       className={`text-md flex h-16 items-center justify-between px-4 font-poppins  shadow-md md:px-16 md:text-lg lg:px-32 xl:px-64 xl:text-xl`}
@@ -17,9 +25,41 @@ export const NavBar = () => {
         </Link>
         <Link href="/Restaurants">Restaurants</Link>
       </div>
-      <div className="flex h-12 items-center rounded-2xl bg-c-blue px-6 py-4 text-c-white">
+      <div
+        onClick={() => handleModal(true)}
+        className="flex h-12 cursor-pointer items-center rounded-2xl bg-c-blue px-6 py-4 text-c-white"
+      >
         Register
       </div>
+      <Modal isOpen={isOpen} handleClose={handleModal}>
+        <div className="mb-4 text-2xl font-semibold text-c-dark">
+          Create an account
+        </div>
+        <CustumLabel text="Email adress" />
+        <CustumInput
+          className="w-full"
+          name="email"
+          type="email"
+          placeholder="test@gmail.com"
+        />
+        <div className="my-4" />
+        <CustumLabel text="Password" />
+        <CustumInput
+          className="w-full"
+          name="password"
+          type="password"
+          placeholder="Mail adress"
+        />
+        <div className="flex items-center justify-center mt-8 ">
+        <div
+        onClick={() => handleModal(false)}
+        className="flex h-12 cursor-pointer items-center rounded-2xl bg-c-blue px-6 py-4 text-c-white"
+      >
+        Register
+      </div>
+        
+        </div>
+      </Modal>
     </nav>
   )
 }

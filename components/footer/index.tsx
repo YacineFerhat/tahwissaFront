@@ -1,4 +1,3 @@
-import logo from 'assets/logo.png'
 import Link from 'next/link'
 export const Footer = () => {
   const Links = ['Activities', 'Hotels', 'Restaurants']

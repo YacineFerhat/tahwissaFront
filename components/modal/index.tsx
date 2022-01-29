@@ -38,7 +38,7 @@ export const Modal = (props: Props) => {
       >
         <DialogContent>
           <div className="hide z-20 rounded-full bg-white pt-5 pb-10 text-center opacity-100">
-            <div className="items-end text-right">
+            <div className="items-end flex justify-end text-right">
               <AiOutlineCloseCircle
                 size={48}
                 className="cursor-pointer pb-2 text-right"
