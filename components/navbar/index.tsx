@@ -6,8 +6,13 @@ import { CustumInput, CustumLabel } from 'components'
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isLogged, setIsLogged] = useState(false)
   const handleModal = (state: boolean) => {
     setIsOpen(state)
+  }
+  const handleCloseModal = () => {
+    handleModal(false)
+    setIsLogged(true)
   }
   return (
     <nav
@@ -29,7 +34,7 @@ export const NavBar = () => {
         onClick={() => handleModal(true)}
         className="flex h-12 cursor-pointer items-center rounded-2xl bg-c-blue px-6 py-4 text-c-white"
       >
-        Register
+        {isLogged ? 'Disconnect' : 'Register'}
       </div>
       <Modal isOpen={isOpen} handleClose={handleModal}>
         <div className="mb-4 text-2xl font-semibold text-c-dark">
@@ -50,14 +55,13 @@ export const NavBar = () => {
           type="password"
           placeholder="Mail adress"
         />
-        <div className="flex items-center justify-center mt-8 ">
-        <div
-        onClick={() => handleModal(false)}
-        className="flex h-12 cursor-pointer items-center rounded-2xl bg-c-blue px-6 py-4 text-c-white"
-      >
-        Register
-      </div>
-        
+        <div className="mt-8 flex items-center justify-center ">
+          <div
+            onClick={handleCloseModal}
+            className="flex h-12 cursor-pointer items-center rounded-2xl bg-c-blue px-6 py-4 text-c-white"
+          >
+            Register
+          </div>
         </div>
       </Modal>
     </nav>
